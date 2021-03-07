@@ -19,10 +19,11 @@
                         each r in events                           
                                 br
                                 a(href="/event/"+r.Event_Name class="card1")
-                                    div(class="card-image" style="background: url("+r.Poster_Url+");grid-area: image;border-top-left-radius: 15px;border-top-right-radius: 15px;background-size: cover;")
+                                    //div(class="card-image" style="background: url("+r.Poster_Url+");grid-area: image;border-top-left-radius: 15px;border-top-right-radius: 15px;background-size: cover;")
+                                    div(class="card-image" style=`background: url("https://www.washingtonpost.com/graphics/2019/entertainment/oscar-nominees-movie-poster-design/img/vice-web.jpg");grid-area: image;border-top-left-radius: 15px;border-top-right-radius: 15px;background-size: cover;`)
                                     <div class="card-text"> 
-                                        h4= "Society :"+r.Society_Name 
                                         h4= "Event : "+r.Event_Name
+                                        h4= "Date : "+r.Event_Date
                                     </div>   
 
         <div class="color" style="height:800vh;">

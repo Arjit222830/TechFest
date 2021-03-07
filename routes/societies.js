@@ -12,7 +12,6 @@ router.post('/',async (req,res)=>{
         return res.status(400).send('Event already registered..');
 
     const society= new Society({
-        Society_Name: req.body.society,
         Event_Name: req.body.event,
         About: req.body.about,
         Rules:{
@@ -24,7 +23,6 @@ router.post('/',async (req,res)=>{
         Co_ordinator1: req.body.c1,
         Co_ordinator2: req.body.c2,
         Venue: req.body.venue,
-        Fee: req.body.fee,
         Prize_Money: req.body.prize+" Max.",
         Maximum_Members: req.body.max_mem,
         Event_Date: req.body.date,

@@ -4,11 +4,7 @@ var app = express();
 var bodyParser = require("body-parser");
 const config= require('config');
 const {Society}= require('./models/society');
-const {Register}= require('./models/register');
-const {Transaction}= require('./models/transaction');
 const societies= require('./routes/societies');
-const registers= require('./routes/registers');
-const transactions= require('./routes/transactions');
 
 mongoose.connect(config.get('db'),{useNewUrlParser: true,useUnifiedTopology: true})
 .then(()=> console.log(`Connected to ${config.get('db')}...`))
@@ -22,8 +18,6 @@ app.use(express.json());
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use('/society',societies);
-app.use('/register',registers);
-app.use('/sahil_malik',transactions);
 
 require('./prod.js')(app);
 

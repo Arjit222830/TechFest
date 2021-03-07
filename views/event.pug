@@ -4,14 +4,14 @@
     
     <body>
 
-        -var key=['Event Name', 'Co-ordinators','Venue','Maximum Participants','Event Fee','Prize Money','Date','Timing'];
-        -var value=[event.Event_Name, [event.Co_ordinator1,event.Co_ordinator2],event.Venue,event.Maximum_Members,"₹"+event.Fee,"₹"+event.Prize_Money,event.Event_Date,event.Event_Time]
+        -var key=['Event Name', 'Co-ordinators','Venue','Maximum Participants','Prize Money','Date','Timing'];
+        -var value=[event.Event_Name, [event.Co_ordinator1,event.Co_ordinator2],event.Venue,event.Maximum_Members,event.Prize_Money,event.Event_Date,event.Event_Time]
     
         div(class="back")
             div(class="color")
                 div(class="container")
                     div(class="pad")
-                        h2(class="text-center content1")= event.Society_Name
+                        h2(class="text-center content1")= event.Event_Name
                     <br>
                   
                     <table class="text-center table table-dark table-striped table-bordered">
@@ -55,88 +55,13 @@
                     <div class="card text-white bg-dark">
                         <h4 class="card-header text-dark bg-light text-center">Rules</h4>
                         <ul>
-                        -for(var i=0;i<4;i++)
-                            -if(event.Rules[i+1]!=' ')    
-                                li= event.Rules[i+1]
+                            -for(var i=0;i<4;i++)
+                                -if(event.Rules[`${i+1}`]!=' ')    
+                                    li= event.Rules[`${i+1}`]
                         </ul>   
                     </div> 
                     br
 
-                    div(class="text-center")    
-                        button(type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal")= "Register"
-
-                    form(id="form_members")
-                        div(class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
-                            div(class="modal-dialog" role="document")
-                                div(class="modal-content")
-                                    div(class="modal-header")
-                                        h5(class="modal-title" id="exampleModalLabel")= "Registration"
-                                        button(type="button" class="close" data-dismiss="modal" aria-label="Close")
-                                            <span aria-hidden="true">&times;</span>
-
-                                    div(class="modal-body")
-                                        div(class="registration_rules")
-                                            <ul style="color:black">
-                                                <li> Registration is a two step process </li>
-                                                <li> First, pay the amount(UPI) by following the link given below.  </li>
-                                                <li> The Transaction Id of the payment would be used to verify the registration </li>
-                                                <li> Second, Click on Step 2 button to fill your details and verify your transaction Id. </li>
-                                                br
-                                                <h6 style="font-size:10px">[Note: Registration would be consider incomplete if second step is not followed]</h6>
-                                            </ul>
-                                        hr
-
-                                        <div class="text-center" id="payment">
-                                            -/* Javascript */
-                                        </div>
-                                        hr
-
-                                        div(class="text-center")
-                                            <button type="submit" style="width:150px" class="btn btn-primary">Step 2:Register</button>
-                                        hr 
-
-        script.
-            var ev= '!{event.Event_Name}';
-            var max_mem= '!{event.Maximum_Members}';
-            var fee= !{event.Fee}
-
-            var payment= document.getElementById('payment');
-
-            var flag=0;
-
-            resize();
-
-            function resize(){
-                if(window.innerWidth<550)
-                {
-                    var anchor= document.createElement('a');
-                    var h5= document.createElement('h5')
-                    h5.setAttribute('style', 'color:black');
-                    h5.appendChild(document.createTextNode('Step:1 Click on Pay Here for UPI payment'));
-                    payment.appendChild(h5);
-                    var h5_1= document.createElement('h5').appendChild(document.createTextNode('Pay Here'));
-                    payment.appendChild(h5);
-                    payment.appendChild(document.createElement('br'));
-                    anchor.appendChild(h5_1);
-                    anchor.setAttribute('href','upi://pay?pa=8178186351@upi&pn=Mr ANKIT  KUMAR&am=!{event.Fee}.00&cu=INR&mode=02&purpose=00&tn=&orgid=189999&sign=MEQCIC9sZz7MVX0zpoxOJeWKPi4t22xnfOeFfM6nCfGqbX0SAiA2xp4hkyw8bu/Mg+lBP/1nl06hrihpdphfXIVkf6bu3Q==');
-                    anchor.setAttribute('target','_blank');
-                    payment.appendChild(anchor);
-                }
-                else
-                {
-                    if(flag++==0){
-                        var image = document.createElement('img');
-                        image.setAttribute('src', "../QR-"+'!{event.Fee}'+'.jpg');
-                        image.setAttribute('style', 'width:30vh');
-                        var h5= document.createElement('h5')
-                        h5.setAttribute('style', 'color:black');
-                        h5.appendChild(document.createTextNode('Step:1 Scan for payment'));
-                        payment.appendChild(h5);
-                        payment.appendChild(document.createElement('br'));
-                        payment.appendChild(image);
-                    }
-                }
-            }
 
         <script src="../vikiran.js"></script></body>
 </html>
