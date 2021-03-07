@@ -1,0 +1,23 @@
+<!DOCTTYPE html>
+<html>
+    include header.pug
+    
+    <body>
+    
+        div(class="color text-center")
+            div(class="container text-center")
+                div(class="pad text-center")
+                    h3(class="content1")= "Details"
+                div(class="row text-center")
+                    each r in events
+                        a(href="/details/"+r.Event_Name style="color:black;text-decoration:none")
+                            div(class="col-sm-4")
+                                br
+                                div(class="card" style="width: 18rem;")
+                                    div(class="card-body")
+                                        h5(class="card-subtitle mb-2 text-muted text-center")= "Event : "+r.Event_Name
+
+        <script src="../vikiran.js"></script>
+
+    </body>
+</html>

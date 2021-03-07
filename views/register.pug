@@ -1,0 +1,51 @@
+<!DOCTTYPE html>
+<html>
+    include header.pug
+    
+    <body>
+
+        -var html_names=['Team Name', 'Team Leader','Enrollment No.','College Name','E-Mail','Contact No.'];
+        -var names= ['team_name','team_leader','enroll_no','college_name','email','contact'];
+        -var types= ['text','text','number','text','email','number'];
+
+        div(class="color")
+            div(class="container")  
+                div(class="pad")
+                    h3(class="text-center top content1")= "Registration"
+                    form(class="contact-form" id="form_register")
+                        -for(var i=1;i<=html_names.length;i++)
+                            label(for="data"+i style="margin-right:1.5vw")= html_names[i-1]
+                            input(type=types[i-1] placeholder=html_names[i-1] id="data"+i name=names[i-1])
+                            br
+                        br
+
+                        -if(eval(numbers)<=4 && eval(numbers)>1)
+                            div(class="text-left")
+                                label(for="other_members" style="margin-right:1.5vw")= "Other Members:"
+                            br
+                            -for(var i=7;i<eval(numbers)+6;i++)
+                                label(for="data"+i style="margin-right:1.5vw")= "Member"+(i-6)
+                                input(type="text" placeholder="Member"+(i-6) id="data"+i value=" " name="member"+(i-6))
+                                br
+                        -else if(eval(numbers)>4)
+                            label(for="sel" style="margin-right:1.5vw")= "Total Members:"
+                            select(id="sel" style="width:100px")
+                               -for(var j=1;j<=eval(numbers);j++)
+                                    option(value=j)= j
+                        <br><br>
+
+                        label(for="data11")= "Transaction ID"
+                        input(type="text" placeholder="Transaction No." id="data11" name="transaction")
+
+                        <br>
+                
+                        <button class="btn" id="sub" style="background-color:red;margin-bottom:1vh" type="submit">Submit</button>
+
+
+        script.
+            var total= '!{numbers}';
+            var event= '!{Event}';
+
+        <script src="../vikiran.js"></script>
+    </body>
+</html>

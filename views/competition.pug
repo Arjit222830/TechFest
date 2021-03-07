@@ -1,0 +1,35 @@
+<!DOCTTYPE html>
+<html>
+    include header.pug  
+
+    style. 
+        @media(max-width:550px){
+            .color{
+                height:2000vh!important
+            }
+        }
+
+    <body>
+
+        -function Competition(events)
+            div(class="container")
+                div(class="pad text-center")
+                    h3(class="content1")= "Events"
+                    div(class="row text-center")
+                        each r in events                           
+                                br
+                                a(href="/event/"+r.Event_Name class="card1")
+                                    div(class="card-image" style="background: url("+r.Poster_Url+");grid-area: image;border-top-left-radius: 15px;border-top-right-radius: 15px;background-size: cover;")
+                                    <div class="card-text"> 
+                                        h4= "Society :"+r.Society_Name 
+                                        h4= "Event : "+r.Event_Name
+                                    </div>   
+
+        <div class="color" style="height:800vh;">
+            -Competition(events)
+        </div>  
+
+        <script src="../vikiran.js"></script>
+
+    </body>
+</html>
