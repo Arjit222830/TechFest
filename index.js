@@ -3,8 +3,8 @@ var express= require("express");
 var app = express();
 var bodyParser = require("body-parser");
 const config= require('config');
-const {Society}= require('./models/society');
-const societies= require('./routes/societies');
+const {Event}= require('./models/event');
+const events= require('./routes/events');
 
 mongoose.connect(config.get('db'),{useNewUrlParser: true,useUnifiedTopology: true})
 .then(()=> console.log(`Connected to ${config.get('db')}...`))
@@ -17,23 +17,23 @@ app.use(express.json());
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: false}));
-app.use('/society',societies);
+app.use('/event',events);
 
 require('./prod.js')(app);
 
 app.set("view engine", "pug");
 
 app.get('/',async function(req,res){
-    let events= await Society.find();
+    let events= await Event.find();
     res.status(200).render('competition',{events:events});
 });
 
 app.get('/123admin456',async function(req,res){
-    res.status(200).render('admin');
+    res.status(200).render('admin',{src:"./vikiran.js",unique: "form_admin"});
 });
 
 app.get('/details',async function(req,res){
-    const events= await Society.find();
+    const events= await Event.find();
     res.status(200).render('details',{events:events});
 });
 
@@ -43,10 +43,12 @@ app.get('/details/:event',async function(req,res){
     res.status(200).render('info',{registers: registers,event: req.params.event, transactions: transactions});
 });
 
-app.get('/event/:item',async function(req,res){
-    let event= await Society.find({Event_Name: req.params.item});
-    res.status(200).render('event',{event:Object.assign({}, event)[0]});
+app.get('/123admin456/:id',async function(req,res){
+    const event= await Event.find({_id:req.params.id});
+    console.log(event);
+    res.status(200).render('admin',{src:"../vikiran.js",event:Object.assign({}, event)[0],unique: "form_admin_update"});
 });
+
 
 app.get('/123transaction456',async function(req,res){
     res.status(200).render('security');

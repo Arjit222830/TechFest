@@ -16,7 +16,7 @@ const Rule_Object= new mongoose.Schema({
     }
 });
 
-const Society= mongoose.model('event_info', new mongoose.Schema({
+const Event= mongoose.model('event_info', new mongoose.Schema({
     Event_Name: {
         type: String,
         required: true
@@ -64,7 +64,7 @@ const Society= mongoose.model('event_info', new mongoose.Schema({
 })
 );
 
-function validateSociety(society){    
+function validateEvent(event){    
     const schema= {
         event: Joi.string().min(1).max(50).required(),
         about: Joi.string().min(1).max(10000).required(),
@@ -81,8 +81,8 @@ function validateSociety(society){
         date: Joi.string().required(),
         time: Joi.string().required()
     };
-    return Joi.validate(society, schema);
+    return Joi.validate(event, schema);
 }
 
-module.exports.Society= Society;
-module.exports.validate=validateSociety;
+module.exports.Event= Event;
+module.exports.validate=validateEvent;

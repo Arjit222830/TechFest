@@ -16,6 +16,20 @@
                                 div(class="card" style="width: 18rem;")
                                     div(class="card-body")
                                         h5(class="card-subtitle mb-2 text-muted text-center")= "Event : "+r.Event_Name
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                a(href=`123admin456/${r._id}` style="text-decoration:none")
+                                                    h5(style="color: black;cursor: pointer")= 'Edit'
+                                            </div>
+                                            <div class="col-sm-6">
+                                                h5(data-toggle="modal" data-target=`#exampleModal${r._id}` style="cursor:pointer")= "Delete"
+                                                -deleteModal(`event/delete/${r._id}`,r._id)
+                                            </div>
+                                        </div>
+
+        -function deleteModal(link,Sno)
+            include deleteModal.pug
+        
 
         <script src="../vikiran.js"></script>
 

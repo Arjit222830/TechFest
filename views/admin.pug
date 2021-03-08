@@ -7,36 +7,44 @@
         -var html_names=['Event Name','About','Rule 1','Rule 2','Rule 3','Rule 4','Co-ordinator 1','Co-ordinator 2','Venue','Prize','Maximum Participants','Poster Name','Date','Time'];
         -var types=['text','textarea','text','text','text','text','text','text','text','text','number','text','date','time'];
         -var names=['event','about','r1','r2','r3','r4','c1','c2','venue','prize','max_mem','poster','date','time'];
+        -var value=[]
+        -if(event)
+            -value=[event.Event_Name, event.About, event.Rules['1'], event.Rules['2'],event.Rules['3'],event.Rules['4'],event.Co_ordinator1,event.Co_ordinator2,event.Venue,event.Prize_Money,event.Maximum_Members,event.Poster_Url,event.Event_Date,event.Event_Time]
         -var i=0;
+
+        -console.log(value);
   
         <div class="container">
         div(class="pad")
             h3(class="text-center content1")= "Adding Events"
             br
-            <form class="contact-form" id="form_admin">
+            form(class="contact-form" id=`${unique}`)
                 for r in html_names
                     label(for="data"+(i+1))=r
                     br
                     -if(types[i]=='textarea')
-                        textarea(type=types[i-1] placeholder="Write about event" id="data"+(i+1) name=names[i++])
+                        textarea(type=types[i-1] placeholder="Write about event" id="data"+(i+1) name=names[i])= value[i]
                     -else if(types[i]=='number')
-                        select(id="data"+((i++)+1) style="width:100px")
+                        select(id="data"+(i+1) style="width:100px" )
                             -for(var j=1;j<=20;j++)
-                                option(value=j)= j
+                                if(value[i]==j)
+                                    option(value=j selected)= j
+                                else
+                                    option(value=j)= j
                         br
                         br
                     -else
-                       input( type=types[i] placeholder=r id="data"+(i+1) name=names[i++])        
+                       input( type=types[i] placeholder=r id="data"+(i+1) name=names[i] value=value[i])   
+                    -i++     
                 br
         
                 <button class="btn" id="sub" style="background-color:red;margin-bottom:1vh" type="submit">Submit</button>
             
-            </form>
             
             <div class="row">
                 <a href="/details"><button class="btn1">Details</button></a><br>
             </div>
         </div>
-        <script src="./vikiran.js"></script>
+        script(src=`${src}`)
     </body>
 </html>
