@@ -29,7 +29,7 @@ app.get('/',async function(req,res){
 });
 
 app.get('/123admin456',async function(req,res){
-    res.status(200).render('admin',{src:"./vikiran.js",unique: "form_admin"});
+    res.status(200).render('admin',{src:"./vikiran.js",TYPE:"Adding",unique: "form_admin"});
 });
 
 app.get('/details',async function(req,res){
@@ -46,7 +46,7 @@ app.get('/details/:event',async function(req,res){
 app.get('/123admin456/:id',async function(req,res){
     const event= await Event.find({_id:req.params.id});
     console.log(event);
-    res.status(200).render('admin',{src:"../vikiran.js",event:Object.assign({}, event)[0],unique: "form_admin_update"});
+    res.status(200).render('admin',{src:"../vikiran.js",event:Object.assign({}, event)[0],TYPE:"Updating",unique: "form_admin_update"});
 });
 
 
