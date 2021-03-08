@@ -21,7 +21,7 @@
                                 br
                                 a(href="/event/"+r.Event_Name class="card1")
                                     //div(class="card-image" style="background: url("+r.Poster_Url+");grid-area: image;border-top-left-radius: 15px;border-top-right-radius: 15px;background-size: cover;")
-                                    div(class="card-image" style=`background: url("/posters/quiz.jpg");grid-area: image;border-top-left-radius: 15px;border-top-right-radius: 15px;background-size: cover;`)
+                                    div(class="card-image" style=`background: url('/posters/${r.Poster_Url}.jpg');grid-area: image;border-top-left-radius: 15px;border-top-right-radius: 15px;background-size: cover;`)
                                     <div class="card-text"> 
                                         h4= "Event : "+r.Event_Name
                                         h4= "Date : "+r.Event_Date
