@@ -4,8 +4,8 @@
     
     <body>
 
-        -var key=['Event Name', 'Co-ordinators','Venue','Maximum Participants','Prize Money','Date','Timing'];
-        -var value=[event.Event_Name, [event.Co_ordinator1,event.Co_ordinator2],event.Venue,event.Maximum_Members,event.Prize_Money,event.Event_Date,event.Event_Time]
+        -var key=['Event Name', 'Co-ordinators','Venue','Maximum Participants','See Poster','Prize Money','Date','Timing'];
+        -var value=[event.Event_Name, [event.Co_ordinator1,event.Co_ordinator2],event.Venue,event.Maximum_Members,event.Poster_Url,event.Prize_Money,event.Event_Date,event.Event_Time]
     
         div(class="back")
             div(class="color")
@@ -44,9 +44,14 @@
                                 <tr>
                                     td= key[i]
                                     -if(i!=1)
-                                        td= value[i]
+                                        -if(i==4)
+                                            <td>
+                                                a(href="https://www.washingtonpost.com/graphics/2019/entertainment/oscar-nominees-movie-poster-design/img/vice-web.jpg" style="text-decoration:none;color:white")= value[i]+".jpg"
+                                            </td>
+                                        -else
+                                            td= value[i]
                                     -else
-                                        td=value[i][0]+"  &  "+value[i][1]
+                                        td #{value[i][0]} <br/> <br/> #{value[i][1]}
                                 </tr>
                         </tbody>
                     </table>
@@ -55,6 +60,7 @@
                     <div class="card text-white bg-dark">
                         <h4 class="card-header text-dark bg-light text-center">Rules</h4>
                         <ul>
+                            -console.log(event.Rules)
                             -for(var i=0;i<4;i++)
                                 -if(event.Rules[`${i+1}`]!=' ')    
                                     li= event.Rules[`${i+1}`]

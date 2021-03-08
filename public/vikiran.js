@@ -11,10 +11,10 @@ $(document).ready(()=>{
             data :{
                 event: $('#data1').val(),
                 about: $('#data2').val(),
-                r1: " "+$('#data3').val(),
-                r2: " "+$('#data4').val(),
-                r3: " "+$('#data5').val(),
-                r4: " "+$('#data6').val(),
+                r1:  $('#data3').val()==''?' ':$('#data3').val().trim(),
+                r2:  $('#data4').val()==''?' ':$('#data4').val().trim(),
+                r3:  $('#data5').val()==''?' ':$('#data5').val().trim(),
+                r4:  $('#data6').val()==''?' ':$('#data6').val().trim(),
                 c1: $('#data7').val(),
                 c2: $('#data8').val(),
                 venue: $('#data9').val(),
@@ -32,7 +32,7 @@ $(document).ready(()=>{
             error:function(err){
                 alert(JSON.stringify(err.responseText));
             }
-        }); 
+        });
     });
 });
 
@@ -46,10 +46,10 @@ $(document).ready(()=>{
             data :{
                 event: $('#data1').val(),
                 about: $('#data2').val(),
-                r1: " "+$('#data3').val(),
-                r2: " "+$('#data4').val(),
-                r3: " "+$('#data5').val(),
-                r4: " "+$('#data6').val(),
+                r1:  $('#data3').val()==''?' ':$('#data3').val().trim(),
+                r2:  $('#data4').val()==''?' ':$('#data4').val().trim(),
+                r3:  $('#data5').val()==''?' ':$('#data5').val().trim(),
+                r4:  $('#data6').val()==''?' ':$('#data6').val().trim(),
                 c1: $('#data7').val(),
                 c2: $('#data8').val(),
                 venue: $('#data9').val(),
