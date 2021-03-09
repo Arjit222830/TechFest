@@ -4,7 +4,7 @@
     
     <body>
 
-        -var key=['Event Name', 'Co-ordinators','Venue','Maximum Participants','See Poster','Prize Money','Date','Timing'];
+        -var key=['Event Name', 'Co-ordinators','Venue','Maximum Participants','Poster','Prize Money','Date','Timing'];
         -var value=[event.Event_Name, [event.Co_ordinator1,event.Co_ordinator2],event.Venue,event.Maximum_Members,event.Poster_Url,event.Prize_Money,event.Event_Date,event.Event_Time]
     
         div(class="back")
@@ -48,7 +48,7 @@
                                     -if(i!=1)
                                         -if(i==4)
                                             <td>
-                                                a(href=`/posters/${value[i]}.jpg` style="text-decoration:none;color:white")= value[i]+".jpg"
+                                                a(href=`/posters/${value[i]}.jpg` style="text-decoration:none;color:white")= "Click Here"
                                             </td>
                                         -else
                                             td= value[i]
