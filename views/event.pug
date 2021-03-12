@@ -15,7 +15,7 @@
                     div(class="pad")
                         h3(class="text-center content1")= event.Event_Name
                     <br>
-                  
+
                     <table class="text-center table table-dark table-striped table-bordered">
                     <col width="600vw" height="1vh">
                     <col width="600vw">
@@ -24,9 +24,9 @@
                             th= "About"
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr class="eventable">
-                            th= event.About
+                    <tbody class="eventable">
+                        <tr>
+                            th <pre style="color:white;font-size:17px">#{event.About}</pre>
                         </tr>
                     </tbody>
                     <br><br>
