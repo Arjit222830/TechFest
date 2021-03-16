@@ -17,22 +17,22 @@
                     <br>
 
                     <table class="text-center table table-dark table-striped table-bordered">
-                    <col width="600vw" height="1vh">
-                    <col width="600vw">
-                    <thead class="heading thead-light">
-                        <tr>
-                            th= "About"
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="eventable">
-                            th #{event.About}
-                        </tr>
-                    </tbody>
+                        <col width="600vw" height="1vh">
+                        <col width="600vw">
+                        <thead class="heading thead-light">
+                            <tr>
+                                th= "About"
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="eventable">
+                                th #{event.About}
+                            </tr>
+                        </tbody>
+                    </table>
                     <br><br>
 
                     <table class="text-center table table-dark table-striped table-bordered">
-                        <br><br>
                         <col width="600vw" height="1vh">
                         <col width="600vw"  >
                         <thead class="heading thead-light">
@@ -58,6 +58,26 @@
                         </tbody>
                     </table>
                     <br><br>
+
+                    -if(value[0]=="DTC Hackathon"){
+                        -console.log(value[0]);
+                        <table class="text-center table table-dark table-striped table-bordered">
+                            <thead class="heading thead-light">
+                                <tr>
+                                    th= "Important Note"
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="eventable">
+                                    <th>
+                                        <div class="text-left">File to be submitted must be accordance with format as described <a style="color:white" href="/hackathon.pdf">Click Here </div><br>
+                                        <div class="text-left">Drive Link <a style="color:white" href="https://drive.google.com/drive/u/0/folders/18OKyJukpjH842VRYV9JiVnrun3VemfAY">Click Here </div>
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br><br>
+                    -}
 
                     <div class="card text-white bg-dark">
                         <h4 class="card-header text-dark bg-light text-center">Rules</h4>
