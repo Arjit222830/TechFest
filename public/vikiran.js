@@ -70,3 +70,28 @@ $(document).ready(()=>{
         }); 
     });
 });
+
+$(document).ready(()=>{
+    $("#form_register").submit( (e)=>{
+        e.preventDefault();
+        $.ajax({
+            url: `/payment/Volerant`,
+            data :{
+                name: $('#data1').val(),
+                college_name: $('#data2').val(),
+                enroll_no: $('#data3').val(),
+                year: $('#data4').val(),
+                email: $('#data5').val(),
+                contact: $('#data6').val()
+            },
+            method: "POST",
+            success : function(data){
+                window.location.replace(data.link);
+                alert(JSON.stringify(data.message));
+            },
+            error:function(err){
+                alert(JSON.stringify(err.responseText));
+            }
+        }); 
+    });
+});

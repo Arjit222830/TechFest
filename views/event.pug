@@ -90,9 +90,10 @@
                     </div> 
                     br
 
-                div(class="text-center")  
-                    a(href="https://docs.google.com/forms/d/e/1FAIpQLSdiloqHCx0H-lqPRH9tiVwlKFCKb3nZnAn4liV493heVZHFYQ/viewform" target="_blank")  
-                        button(type="button" class="btn btn-danger" style="width:150px!important")= "Register Now"
+                div(class="text-center") 
+                    -//form(action="/payment/orders" method="post" enctype="x-www-form-urlencoded")
+                    a(href=`/register/${value[0]}`)
+                        button(type="submit" class="btn btn-danger")= "Register" 
 
 
         <script src="../vikiran.js"></script></body>

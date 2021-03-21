@@ -3,8 +3,12 @@ var express= require("express");
 var app = express();
 var bodyParser = require("body-parser");
 const config= require('config');
+var cookieParser = require('cookie-parser');
 const {Event}= require('./models/event');
 const events= require('./routes/events');
+const payments= require('./routes/payment');
+const registers= require('./routes/registers');
+const cors= require('cors');
 
 mongoose.connect(config.get('db'),{useNewUrlParser: true,useUnifiedTopology: true})
 .then(()=> console.log(`Connected to ${config.get('db')}...`))
@@ -14,10 +18,15 @@ mongoose.set('useCreateIndex', true);
 mongoose.set('useFindAndModify', false);
 
 app.use(express.json());
+app.use(cors());
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use('/event',events);
+app.use('/payment',payments);
+app.use('/register',registers);
+
+app.use(cookieParser());
 
 require('./prod.js')(app);
 
@@ -48,7 +57,6 @@ app.get('/123admin456/:id',async function(req,res){
     console.log(event);
     res.status(200).render('admin',{src:"../vikiran.js",event:Object.assign({}, event)[0],TYPE:"Updating",unique: "form_admin_update"});
 });
-
 
 app.get('/123transaction456',async function(req,res){
     res.status(200).render('security');

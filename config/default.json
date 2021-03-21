@@ -1,3 +1,5 @@
 {
-    "db": "mongodb://localhost/techFest"
+    "db": "mongodb://localhost/techFest",
+    "paymentID": "",
+    "paymentSecret": ""
 }

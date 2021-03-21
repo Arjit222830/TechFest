@@ -80,7 +80,7 @@ body{
     text-align: center;
 }
 
-label{
+label,select{
     font-size: 20px;
     align-content: center !important;
     color: #c5ecfd;
@@ -100,7 +100,7 @@ textarea{
     width: 100%;
 }
 
-input{
+input {
     display: flex;
     flex-direction: column;
     margin-right: 4%;
