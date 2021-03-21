@@ -6,7 +6,7 @@ const auth= require('../middleware/auth');
 const getCookies=  require('../middleware/getCookies');
 const {Payment}= require('../models/payment');
 const {Register, validate}= require('../models/register');
-var Razorpay= require('Razorpay');
+var Razorpay= require('razorpay');
 var instance = new Razorpay({ key_id: config.get('paymentID'), key_secret: config.get('paymentSecret')});
 
 
