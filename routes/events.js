@@ -4,7 +4,7 @@ const {Event, validate}= require('../models/event');
 
 router.get('/:item',async function(req,res){
     let event= await Event.find({Event_Name: req.params.item});
-    res.status(200).render('event',{event:Object.assign({}, event)[0]});
+    res.status(200).render('event',{event:event[0]})
 });
 
 router.post('/',async (req,res)=>{

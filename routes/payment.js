@@ -9,10 +9,15 @@ const {Register, validate}= require('../models/register');
 var Razorpay= require('razorpay');
 var instance = new Razorpay({ key_id: config.get('paymentID'), key_secret: config.get('paymentSecret')});
 
-
 router.get('/',async function(req,res){
 
     var cookies= await getCookies(req);
+
+    if(cookies==0)
+        return res.send('There seems to be some unauthorised access visiting this page');
+
+    if(!cookies)
+        res.send('There seems to be some illegal attack.');
 
     if(!cookies['x-auth-token'])
         res.send('Token Not available');
@@ -34,7 +39,7 @@ router.post('/:Event',async (req,res)=>{
         return res.status(400).send('User already registered..');
 
     var data= {
-        amount: 100,  // amount in the smallest currency unit
+        amount: 1000,  // amount in the smallest currency unit
         currency: "INR",
         receipt: "order_rcptid_11"
     };
@@ -53,12 +58,10 @@ router.post('/',async (req,res)=>{
 
     var cookies= await getCookies(req);
 
-    var data= JSON.parse(decodeURIComponent(cookies['data']).substring(2));
+    if(cookies==0)
+        return res.send({message:'Payment Failed. Contact the service provider for any query',link:'/'});
 
-    console.log({...data,Payment_ID: req.body.razorpay_payment_id,
-    Order_ID: req.body.razorpay_order_id,
-    Signature: req.body.razorpay_signature
-    });
+    var data= JSON.parse(decodeURIComponent(cookies['data']).substring(2));
 
     const register= new Register({
         ...data,

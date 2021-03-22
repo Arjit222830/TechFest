@@ -1,21 +1,27 @@
 <!DOCTTYPE html>
 <html>
-    include header.pug
+    include header2.pug
     
     <body>
-        <button id="rzp-button1">Pay</button>
+        
+        div(class="color text-center")
+            div(class="pad")
+                h2(class="text-center content1") TechoNetes <br/> Powerered By <a href="https://codingblocks.com/" target="_blank" style="color:white;text-decoration:none">Coding Blocks</a>
+            
+            <img style="margin-top:2vh;width:60vw;height:30vh" src="https://i0.wp.com/www.ecommerce-nation.com/wp-content/uploads/2019/02/Razorpay-the-new-epayment-that-will-break-everything-in-2019.png?fit=1000%2C600&ssl=1" />
+            br
+            <button style="margin-top:5vh" class="btn btn-primary" id="rzp-button1">Proceed to Pay</button>
+  
+
         <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
         script.
-
             var order= '!{order}';
             var paymentID= '!{paymentID}';
             var options = {
                 "key": paymentID, // Enter the Key ID generated from the Dashboard
-                "amount": "100", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-                "currency": "INR",
                 "name": "Cesta Society",
                 "description": "Transction for Volerant Event",
-                "image": "https://example.com/your_logo",
+                "image": "https://delhitechnicalcampus.ac.in/wp-content/uploads/2021/02/CESTA-logo-300x75.jpg",
                 "order_id": order, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
                 "handler": function (response){
                     $(document).ready(()=>{
