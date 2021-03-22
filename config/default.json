@@ -1,5 +1,5 @@
 {
     "db": "mongodb://localhost/techFest",
-    "paymentID": "",
-    "paymentSecret": ""
+    "paymentID": "rzp_live_No12iRYSfyfDJl",
+    "paymentSecret": "T2ykzmgbHOxrw8w8OTxOHz9z"
 }

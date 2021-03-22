@@ -5,6 +5,7 @@ var bodyParser = require("body-parser");
 const config= require('config');
 var cookieParser = require('cookie-parser');
 const {Event}= require('./models/event');
+const {Register}= require('./models/register');
 const events= require('./routes/events');
 const payments= require('./routes/payment');
 const registers= require('./routes/registers');
@@ -48,18 +49,18 @@ app.get('/details',async function(req,res){
 
 app.get('/details/:event',async function(req,res){
     const registers= await Register.find({event_name:  req.params.event});
-    const transactions= await Transaction.find();
-    res.status(200).render('info',{registers: registers,event: req.params.event, transactions: transactions});
+    res.status(200).render('info',{registers: registers,event: req.params.event});
+});
+
+app.get('/123admin456/registerations',async function(req,res){
+    const registers= await Register.find();
+    res.status(200).render('event_management',{registers: registers});
 });
 
 app.get('/123admin456/:id',async function(req,res){
     const event= await Event.find({_id:req.params.id});
     console.log(event);
     res.status(200).render('admin',{src:"../vikiran.js",event:Object.assign({}, event)[0],TYPE:"Updating",unique: "form_admin_update"});
-});
-
-app.get('/123transaction456',async function(req,res){
-    res.status(200).render('security');
 });
 
 const port=process.env.PORT || 3000;

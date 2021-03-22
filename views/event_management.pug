@@ -4,7 +4,7 @@
     
     <body>
 
-        -var head= ['S.No','Event Name','Team Name','Team Leader','College Name','Tot. Mem','Transaction ID','Contact','Paid','Date',];
+        -var head= ['S.No','Name','College','Year','Email','Contact','Date'];
 
         div(class="color")
             div(class="container")              
@@ -17,12 +17,9 @@
                         col(width="10" height="1vh")
                         col(width="130")
                         col(width="130")
-                        col(width="130")
-                        col(width="130")
                         col(width="5")
                         col(width="130")
                         col(width="130")
-                        col(width="10")
                         col(width="130")
                         thead(class="heading thead-light")
                             tr
@@ -32,22 +29,12 @@
                             tbody(class="eventable")
                                 -for(var i=0;i<registers.length;i++)
                                     tr
-                                        -var count=0;
-                                        each t in transactions
-                                            -if(t.Transaction_No==registers[i].transaction)
-                                                -count++
                                         td= i+1
-                                        td= registers[i].event_name
-                                        td= registers[i].team_name
-                                        td= registers[i].team_leader
+                                        td= registers[i].name
                                         td= registers[i].college_name
-                                        td= registers[i].total_members
-                                        td= registers[i].transaction
+                                        td= registers[i].year
+                                        td= registers[i].email
                                         td= registers[i].contact
-                                        -if(count!=0)
-                                            td= "Yes"
-                                        -else
-                                             td= "-"
                                         td= registers[i].date.toString().substring(0,(registers[i].date.toString().indexOf(':')-2))
                                         
             
