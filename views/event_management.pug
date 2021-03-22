@@ -4,7 +4,7 @@
     
     <body>
 
-        -var head= ['S.No','Name','College','Year','Email','Contact','Date'];
+        -var head= ['S.No','Team Name','Team Players','College','Email','Contact','Date'];
 
         div(class="color")
             div(class="container")              
@@ -17,7 +17,7 @@
                         col(width="10" height="1vh")
                         col(width="130")
                         col(width="130")
-                        col(width="5")
+                        col(width="130")
                         col(width="130")
                         col(width="130")
                         col(width="130")
@@ -30,9 +30,9 @@
                                 -for(var i=0;i<registers.length;i++)
                                     tr
                                         td= i+1
-                                        td= registers[i].name
+                                        td= registers[i].team_name
+                                        td= registers[i].p1+", "+registers[i].p2+", "+registers[i].p3+", "+registers[i].p4+", "+registers[i].p5
                                         td= registers[i].college_name
-                                        td= registers[i].year
                                         td= registers[i].email
                                         td= registers[i].contact
                                         td= registers[i].date.toString().substring(0,(registers[i].date.toString().indexOf(':')-2))
