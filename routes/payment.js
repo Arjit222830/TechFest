@@ -29,6 +29,8 @@ router.get('/',async function(req,res){
 
 router.post('/:Event',async (req,res)=>{
 
+    console.log(req.params.Event);
+
     const {error}= validate(req.body);//result.error(joi package)
     if(error)
         return res.status(400).send(error.details[0].message);

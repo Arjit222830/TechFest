@@ -75,7 +75,7 @@ $(document).ready(()=>{
     $("#form_register").submit( (e)=>{
         e.preventDefault();
         $.ajax({
-            url: `/payment/Volerant`,
+            url: `/payment/${event}`,
             data :{
                 name: $('#data1').val(),
                 college_name: $('#data2').val(),
