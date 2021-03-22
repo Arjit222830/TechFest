@@ -52,7 +52,7 @@ app.get('/details/:event',async function(req,res){
     res.status(200).render('info',{registers: registers,event: req.params.event});
 });
 
-app.get('/123admin456/registerations',async function(req,res){
+app.get('/admin/registerations',async function(req,res){
     const registers= await Register.find();
     res.status(200).render('event_management',{registers: registers});
 });
