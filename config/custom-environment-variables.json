@@ -1,5 +1,5 @@
 {
     "db":"techFest_db",
-    "paymentID": "",
-    "paymentSecret": ""
+    "paymentID": "paymentID",
+    "paymentSecret": "paymentSecret"
 }
