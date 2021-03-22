@@ -16,6 +16,13 @@
                         h3(class="text-center content1")= event.Event_Name
                     <br>
 
+                    div(class="text-right") 
+                        a(href=`/register/${event.Event_Name}`)
+                            button(type="submit" class="btn btn-danger")= "Register" 
+
+                    br
+
+
                     <table class="text-center table table-dark table-striped table-bordered">
                         <col width="600vw" height="1vh">
                         <col width="600vw">
