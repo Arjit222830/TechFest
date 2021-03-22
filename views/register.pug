@@ -4,9 +4,9 @@
     
     <body>
 
-        -var html_names=['Name','College Name','Enrollment No.','Year','E-Mail','Contact No.'];
-        -var names= ['name','college_name','enroll_no','year','email','contact'];
-        -var types= ['text','text','number','text','email','number'];
+        -var html_names=['Team Name','Player 1','Player 2','Player 3','Player 4','Player 5','College Name','E-Mail','Contact No.'];
+        -var names= ['team_name','p1','p2','p3','p4','p5','college_name','email','contact'];
+        -var types= ['text','text','text','text','text','text','text','email','number'];
 
         div(class="color")
             div(class="pad")
@@ -17,14 +17,8 @@
                     form(class="contact-form" id="form_register")
                         -for(var i=1;i<=html_names.length;i++)
                             label(for="data"+i style="margin-right:1.5vw")= html_names[i-1]
-                            -if(html_names[i-1]!='Year')
-                                input(type=types[i-1] placeholder=html_names[i-1] id="data"+i name=names[i-1])
-                                br
-                            -else
-                                select(id="data"+i style="width:100px;color:black")
-                                    -for(var j=0;j<yearEnum.length;j++)
-                                        option(value=`${yearEnum[j]}` style="color:black")= `${yearEnum[j]}`
-                                <br/><br/><br/>
+                            input(type=types[i-1] placeholder=html_names[i-1] id="data"+i name=names[i-1])
+                            br
                         <br><br>
 
                         <br>

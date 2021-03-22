@@ -1,22 +1,33 @@
 const Joi= require('joi');
 const mongoose =require('mongoose');
 const Register= mongoose.model('registrations', new mongoose.Schema({
-    name: {
+    team_name: {
+        type: String,
+        required: true
+    },
+    p1:{
+        type: String,
+        required: true
+    },
+    p2:{
+        type: String,
+        required: true
+    },
+    p3:{
+        type: String,
+        required: true
+    },
+    p4:{
+        type: String,
+        required: true
+    },
+    p5:{
         type: String,
         required: true
     },
     college_name: {
         type: String,
         required: true
-    },
-    enroll_no: {
-        type: String,
-        required: true
-    },
-    year: {
-        type: String,
-        required: true,
-        enum: ["1st","2nd","3rd","4th"]
     },
     contact:{
         type: String,
@@ -47,10 +58,13 @@ const Register= mongoose.model('registrations', new mongoose.Schema({
 
 function validateRegister(register){    
     const schema= {
-        name: Joi.string().min(1).max(50).required(),
+        team_name: Joi.string().min(1).max(50).required(),
+        p1: Joi.string().min(1).max(50).required(),
+        p2: Joi.string().min(1).max(50).required(),
+        p3: Joi.string().min(1).max(50).required(),
+        p4: Joi.string().min(1).max(50).required(),
+        p5: Joi.string().min(1).max(50).required(),
         college_name: Joi.string().min(1).max(50).required(),
-        enroll_no: Joi.string().required(),
-        year: Joi.string().required(),
         email: Joi.string().min(5).max(255).required().email(),
         contact: Joi.string().length(10).required()
     };

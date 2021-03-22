@@ -17,7 +17,7 @@ router.get('/',async function(req,res){
         return res.send('There seems to be some unauthorised access visiting this page');
 
     if(!cookies)
-        res.send('There seems to be some illegal attack.');
+        res.send('This seems to be some illegal attack.');
 
     if(!cookies['x-auth-token'])
         res.send('Token Not available');
@@ -41,7 +41,7 @@ router.post('/:Event',async (req,res)=>{
         return res.status(400).send('User already registered..');
 
     var data= {
-        amount: 1000,  // amount in the smallest currency unit
+        amount: 5000,  // amount in the smallest currency unit
         currency: "INR",
         receipt: "order_rcptid_11"
     };

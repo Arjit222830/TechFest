@@ -77,12 +77,15 @@ $(document).ready(()=>{
         $.ajax({
             url: `/payment/${event}`,
             data :{
-                name: $('#data1').val(),
-                college_name: $('#data2').val(),
-                enroll_no: $('#data3').val(),
-                year: $('#data4').val(),
-                email: $('#data5').val(),
-                contact: $('#data6').val()
+                team_name: $('#data1').val(),
+                p1: $('#data2').val(),
+                p2: $('#data3').val(),
+                p3: $('#data4').val(),
+                p4: $('#data5').val(),
+                p5: $('#data6').val(),
+                college_name: $('#data7').val(),
+                email: $('#data8').val(),
+                contact: $('#data9').val()
             },
             method: "POST",
             success : function(data){
